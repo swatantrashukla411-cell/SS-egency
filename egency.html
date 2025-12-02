@@ -3,313 +3,956 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SS Agency | Results-Driven Social Media Marketing in Lakhimpur Kheri</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <title>QUMS L_I_F - Lost & Found</title>
     <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f7f9fb;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
         }
-        .hero-bg {
-            background-color: #0b1426; /* Deep Blue/Black for contrast */
-            background-image: linear-gradient(135deg, #1f2937 0%, #0b1426 100%);
+        
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
         }
-        .text-accent {
-            color: #ff6e40; /* Orange/Coral accent color */
+
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
         }
-        .bg-accent {
-            background-color: #ff6e40;
+
+        .logo {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            background: #3498db;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
         }
-        .card-shadow {
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
+/* --- POSITION TOP RIGHT --- */
+.dropdown-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+}
+
+/* --- MAIN BUTTON --- */
+.dropdown-btn {
+    background: #3498db;
+    color: #fff;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+}
+
+.dropdown-btn:hover {
+    background: #217dbb;
+}
+
+/* --- DROPDOWN MENU BOX --- */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    margin-top: 8px;
+    background: #fff;
+    border-radius: 8px;
+    width: 160px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.20);
+    overflow: hidden;
+}
+
+/* --- MENU LINKS --- */
+.dropdown-menu a {
+    display: block;
+    padding: 12px 16px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background: #f1f1f1;
+}
+
+
+
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            letter-spacing: 8px;
         }
-        .card-shadow:hover {
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .menu-text {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .test-connection-btn {
+            margin: 0 auto 20px;
+            display: block;
+            width: auto;
+            padding: 10px 30px;
+            background: #27ae60;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .menu-item {
+            background: #f8f9fa;
+            border: 3px solid #2c3e50;
+            border-radius: 15px;
+            padding: 50px 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .menu-item:hover {
+            background: #2c3e50;
+            color: white;
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
-        /* Custom Keyframe for subtle floating animation */
-        @keyframes float {
-            0% { transform: translatey(0px); }
-            50% { transform: translatey(-8px); }
-            100% { transform: translatey(0px); }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
         }
-        .floating-element {
-            animation: float 4s ease-in-out infinite;
+
+        .modal-content {
+            background: white;
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 40px;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 3em;
+            cursor: pointer;
+            color: #999;
+            line-height: 1;
+        }
+
+        .close-modal:hover {
+            color: #333;
+        }
+
+        .modal h2 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2em;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border 0.3s;
+            font-family: Arial, sans-serif;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+
+        button {
+            background: #2c3e50;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        button:hover {
+            background: #34495e;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        button:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .item-card {
+            background: white;
+            border: 2px solid #2c3e50;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+
+        .item-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .item-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 2px solid #eee;
+        }
+
+        .item-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .item-card p {
+            color: #666;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .item-status {
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .status-available {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-claimed {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .claim-btn {
+            width: 100%;
+            margin-top: 15px;
+            background: #27ae60;
+            padding: 12px;
+            font-size: 1em;
+        }
+
+        .claim-btn:hover {
+            background: #229954;
+        }
+
+        .search-section {
+            margin-bottom: 25px;
+        }
+
+        .search-bar {
+            margin-bottom: 15px;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .chat-box {
+            border: 2px solid #2c3e50;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 25px;
+            max-height: 400px;
+            overflow-y: auto;
+            background: #f8f9fa;
+        }
+
+        .chat-message {
+            margin-bottom: 15px;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .chat-message.finder {
+            background: #e3f2fd;
+            margin-right: 50px;
+        }
+
+        .chat-message.owner {
+            background: #f1f8e9;
+            margin-left: 50px;
+        }
+
+        .chat-input {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .chat-input input {
+            flex: 1;
+        }
+
+        .chat-input button {
+            width: auto;
+            padding: 12px 30px;
+        }
+
+        .success-msg {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #28a745;
+        }
+
+        .error-msg {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #dc3545;
+        }
+
+        .warning-msg {
+            background: #fff3cd;
+            color: #856404;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
+            font-weight: bold;
+        }
+
+        .rules-content {
+            line-height: 1.8;
+        }
+
+        .rules-content h3 {
+            color: #2c3e50;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .rules-content p {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2em;
+                letter-spacing: 4px;
+            }
+
+            .items-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
-<body class="text-gray-800">
+<body>
+    <div class="container">
+        <header>
+         
+   <!-- DROPDOWN LOGIN MENU -->
+<div class="dropdown-container">
+    <button class="dropdown-btn">Login ▾</button>
 
-    <!-- Header & Navigation -->
-    <header class="sticky top-0 z-50 bg-white shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <a href="#home" class="text-2xl font-extrabold text-gray-900 flex items-center">
-                <span class="text-accent">SS</span> Agency
-            </a>
-            <nav class="hidden md:flex space-x-8 font-semibold">
-                <a href="#services" class="text-gray-600 hover:text-accent transition duration-150">Services</a>
-                <a href="#results" class="text-gray-600 hover:text-accent transition duration-150">Our Focus</a>
-                <a href="#process" class="text-gray-600 hover:text-accent transition duration-150">Process</a>
-                <a href="#contact" class="px-4 py-2 bg-accent text-white rounded-full hover:bg-orange-700 transition duration-150 shadow-md">Get Started</a>
-            </nav>
-            <!-- Mobile Menu Button (Hamburger) -->
-            <button class="md:hidden text-gray-700 focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+    <div class="dropdown-menu">
+        <a href="admin_login.html">Admin Login</a>
+        <a href="student_login.html">Student Login</a>
+    </div>
+</div>
+<script>
+    document.querySelector(".dropdown-btn").addEventListener("click", function () {
+        document.querySelector(".dropdown-menu").classList.toggle("show-menu");
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", function (event) {
+        if (!event.target.closest(".dropdown-container")) {
+            document.querySelector(".dropdown-menu").classList.remove("show-menu");
+        }
+    });
+</script>
+
+<style>
+    .show-menu {
+        display: block !important;
+    }
+</style>
+
+
+    <h1>QUMS  L_I_F</h1>
+    <p class="subtitle">Powered by AI AVENGER</p>
+
+
+        </header>
+
+        <div class="content">
+            <p class="menu-text">Select an option below to get started</p>
+            <button onclick="testConnection()" class="test-connection-btn">
+                🔌 Test Backend Connection
             </button>
+            
+            <div class="grid">
+                <div class="menu-item" onclick="openModal('uploadModal')">
+                    UPLOAD<br>LOST<br>ITEM
+                </div>
+                
+                <div class="menu-item" onclick="openModal('searchModal')">
+                    SEARCH<br>LOST<br>ITEM
+                </div>
+                
+                <div class="menu-item" onclick="openModal('unclaimedModal')">
+                    ITEM<br>NOT<br>CLAIM<br>YET
+                </div>
+                
+                <div class="menu-item" onclick="openModal('rulesModal')">
+                    RULES
+                </div>
+            </div>
         </div>
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-xl">
-            <a href="#services" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Services</a>
-            <a href="#results" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Our Focus</a>
-            <a href="#process" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Process</a>
-            <a href="#contact" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block px-4 py-2 text-sm bg-accent text-white hover:bg-orange-700">Get Started</a>
+    </div>
+
+    <!-- Upload Modal -->
+    <div id="uploadModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('uploadModal')">&times;</span>
+            <h2>📤 UPLOAD FOUND ITEM</h2>
+            <form id="uploadForm">
+                <div class="form-group">
+                    <label>Item Image *</label>
+                    <input type="file" id="itemImage" accept="image/*" required>
+                </div>
+                <div class="form-group">
+                    <label>Item Name *</label>
+                    <input type="text" id="itemName" placeholder="e.g., Water Bottle, ID Card" required>
+                </div>
+                <div class="form-group">
+                    <label>Description * (Color, Brand, Marks)</label>
+                    <textarea id="itemDescription" placeholder="Be specific: Black Nike bottle with Iron Man sticker" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Location Found *</label>
+                    <input type="text" id="locationFound" placeholder="e.g., Canteen, Library 2nd Floor" required>
+                </div>
+                <div class="form-group">
+                    <label>Date & Time Found *</label>
+                    <input type="datetime-local" id="dateTimeFound" required>
+                </div>
+                <div class="form-group">
+                    <label>Your Contact *</label>
+                    <input type="text" id="finderContact" placeholder="Phone or Email" required>
+                </div>
+                <div class="form-group">
+                    <label>Your Roll Number *</label>
+                    <input type="text" id="finderRoll" placeholder="e.g., 21BCS107" required>
+                </div>
+                <button type="submit">UPLOAD ITEM</button>
+            </form>
         </div>
-    </header>
+    </div>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero-bg text-white py-20 sm:py-32">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-tight mb-4">
-                    The <span class="text-accent">Results-Driven</span> Social Media Agency
-                </h1>
-                <h2 class="text-xl sm:text-2xl font-light mb-8 max-w-3xl mx-auto">
-                    SS Agency: New in Lakhimpur Kheri, focused purely on turning followers into customers.
-                </h2>
-                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#contact" class="px-8 py-3 bg-accent text-white font-bold rounded-full text-lg hover:bg-orange-700 transition duration-300 shadow-xl">
-                        Start Your Growth Story
-                    </a>
-                    <a href="#services" class="px-8 py-3 bg-white text-gray-900 font-bold rounded-full text-lg hover:bg-gray-200 transition duration-300 shadow-xl">
-                        See Our Services
-                    </a>
+    <!-- Search Modal -->
+    <div id="searchModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('searchModal')">&times;</span>
+            <h2>🔎 SEARCH LOST ITEMS</h2>
+            
+            <div class="search-section">
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="🔍 Search by name, description, location..." onkeyup="filterItems()">
+                </div>
+                <div class="filter-group">
+                    <select id="categoryFilter" onchange="filterItems()">
+                        <option value="all">All Categories</option>
+                        <option value="id card">ID Card</option>
+                        <option value="bottle">Bottle</option>
+                        <option value="book">Book</option>
+                        <option value="phone">Phone</option>
+                        <option value="other">Other</option>
+                    </select>
                 </div>
             </div>
-        </section>
-
-        <!-- Value Proposition / Core Focus Section -->
-        <section id="results" class="py-16 sm:py-24 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h3 class="text-xs font-bold uppercase text-accent mb-2 tracking-widest">Our Promise</h3>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-12">
-                    We Don't Just Post. We Deliver <span class="text-accent">Measurable ROI.</span>
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Value Card 1: Conversions -->
-                    <div class="p-8 rounded-xl bg-gray-50 card-shadow">
-                        <svg class="w-12 h-12 text-accent mx-auto mb-4 floating-element" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.488 9H15V3.055"></path></svg>
-                        <h4 class="text-xl font-bold mb-3 text-gray-900">Conversion Focused</h4>
-                        <p class="text-gray-600">Every piece of content is designed to move your audience toward a specific action: a purchase, a lead, or a booking. We track the money.</p>
-                    </div>
-                    <!-- Value Card 2: Local Expertise -->
-                    <div class="p-8 rounded-xl bg-gray-50 card-shadow">
-                        <svg class="w-12 h-12 text-accent mx-auto mb-4 floating-element" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        <h4 class="text-xl font-bold mb-3 text-gray-900">Lakhimpur Kheri Insight</h4>
-                        <p class="text-gray-600">We are based right here. We understand the local market, the audience behavior, and the competition in our city to create hyper-targeted campaigns.</p>
-                    </div>
-                    <!-- Value Card 3: Transparent Reporting -->
-                    <div class="p-8 rounded-xl bg-gray-50 card-shadow">
-                        <svg class="w-12 h-12 text-accent mx-auto mb-4 floating-element" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                        <h4 class="text-xl font-bold mb-3 text-gray-900">Clear KPIs & Reporting</h4>
-                        <p class="text-gray-600">You will receive simple, detailed reports focusing on key performance indicators (KPIs) like Leads, Sales, and ROI, not just Likes and Comments.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section id="services" class="py-16 sm:py-24 bg-gray-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h3 class="text-xs font-bold uppercase text-accent mb-2 tracking-widest">What We Do</h3>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">Our Full Suite of Result-Focused Services</h2>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Service 1: Social Media Strategy & Management -->
-                    <div class="bg-white p-6 rounded-xl card-shadow border-t-4 border-accent">
-                        <h4 class="text-2xl font-bold text-gray-900 mb-3 flex items-center">
-                            <svg class="w-6 h-6 mr-2 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                            Platform Management
-                        </h4>
-                        <p class="text-gray-600 mb-4">We handle all major platforms (Facebook, Instagram, LinkedIn, YouTube) from daily posting to community engagement.</p>
-                        <ul class="text-sm text-gray-700 space-y-2">
-                            <li class="flex items-center"><span class="text-accent mr-2 font-bold">&check;</span> Custom Content Calendars</li>
-                            <li class="flex items-center"><span class="text-accent mr-2 font-bold">&check;</span> Audience Engagement & Community Moderation</li>
-                            <li class="flex items-center"><span class="text-accent mr-2 font-bold">&check;</span> Profile Optimization & Branding</li>
-                        </ul>
-                    </div>
-
-                    <!-- Service 2: Paid Social Advertising (PPC) -->
-                    <div class="bg-white p-6 rounded-xl card-shadow border-t-4 border-accent">
-                        <h4 class="text-2xl font-bold text-gray-900 mb-3 flex items-center">
-                            <svg class="w-6 h-6 mr-2 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3 .895 3 2s-1.343 2-3 2h-1v-4h1zM11 19h2M12 12V3"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12a9 9 0 1118 0 9 9 0 01-18 0z"></path></svg>
-                            Paid Ad Campaigns (Leads)
-                        </h4>
-                        <p class="text-gray-600 mb-4">Stop wasting ad budget. We run highly targeted Meta Ads (Facebook/Instagram) and Google Ads designed purely for Lead Generation and Sales.</p>
-                        <ul class="text-sm text-gray-700 space-y-2">
-                            <li class="flex items-center"><span class="text-accent mr-2 font-bold">&check;</span> Audience Research & A/B Testing</li>
-                            <li class="flex items-center"><span class="text-accent mr-2 font-bold">&check;</span> Conversion Tracking Setup</li>
-                            <li class="flex items-center"><span class="text-accent mr-2 font-bold">&check;</span> Daily Budget Monitoring & Optimization</li>
-                        </ul>
-                    </div>
-
-                    <!-- Service 3: Content Creation & Branding -->
-                    <div class="bg-white p-6 rounded-xl card-shadow border-t-4 border-accent">
-                        <h4 class="text-2xl font-bold text-gray-900 mb-3 flex items-center">
-                            <svg class="w-6 h-6 mr-2 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                            High-Impact Content
-                        </h4>
-                        <p class="text-gray-600 mb-4">We create visuals and video content that stops the scroll and drives engagement. High-quality content is non-negotiable for brand trust.</p>
-                        <ul class="text-sm text-gray-700 space-y-2">
-                            <li class="flex items-center"><span class="text-accent mr-2 font-bold">&check;</span> Reel & Short Video Production</li>
-                            <li class="flex items-center"><span class="text-accent mr-2 font-bold">&check;</span> Graphic Design for Posts & Stories</li>
-                            <li class="flex items-center"><span class="text-accent mr-2 font-bold">&check;</span> Compelling Copywriting (CTAs)</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="text-center mt-12">
-                    <a href="#contact" class="inline-block px-10 py-3 bg-gray-900 text-white font-bold rounded-full hover:bg-gray-700 transition duration-300">
-                        Get a Custom Strategy & Pricing
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- The 4-Step Results Process -->
-        <section id="process" class="py-16 sm:py-24 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h3 class="text-xs font-bold uppercase text-accent mb-2 tracking-widest">How We Work</h3>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">Our 4-Step Path to <span class="text-accent">Growth</span></h2>
-                </div>
-
-                <div class="relative">
-                    <!-- Line connecting the steps (Hidden on mobile for cleaner look) -->
-                    <div class="hidden lg:block absolute h-1 w-full bg-gray-200 top-1/2 transform -translate-y-1/2"></div>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-4 gap-10">
-                        <!-- Step 1: Strategy -->
-                        <div class="relative flex flex-col items-center text-center p-6 bg-gray-50 rounded-xl card-shadow">
-                            <div class="w-12 h-12 flex items-center justify-center bg-accent rounded-full text-white font-bold text-xl mb-4 shadow-lg">1</div>
-                            <h4 class="text-xl font-bold mb-2 text-gray-900">Audit & Strategy</h4>
-                            <p class="text-gray-600">We audit your current presence, define your target audience in Lakhimpur Kheri, and set clear, measurable KPIs (Leads, Sales, Traffic).</p>
-                        </div>
-                        <!-- Step 2: Content -->
-                        <div class="relative flex flex-col items-center text-center p-6 bg-gray-50 rounded-xl card-shadow">
-                            <div class="w-12 h-12 flex items-center justify-center bg-accent rounded-full text-white font-bold text-xl mb-4 shadow-lg">2</div>
-                            <h4 class="text-xl font-bold mb-2 text-gray-900">Create & Engage</h4>
-                            <p class="text-gray-600">We produce compelling content (visuals, videos, copy) and execute a scheduled posting plan optimized for peak audience activity.</p>
-                        </div>
-                        <!-- Step 3: Accelerate -->
-                        <div class="relative flex flex-col items-center text-center p-6 bg-gray-50 rounded-xl card-shadow">
-                            <div class="w-12 h-12 flex items-center justify-center bg-accent rounded-full text-white font-bold text-xl mb-4 shadow-lg">3</div>
-                            <h4 class="text-xl font-bold mb-2 text-gray-900">Paid Acceleration</h4>
-                            <p class="text-gray-600">We implement targeted paid campaigns (PPC) on social media to ensure your best content reaches high-intent local customers fast.</p>
-                        </div>
-                        <!-- Step 4: Report -->
-                        <div class="relative flex flex-col items-center text-center p-6 bg-gray-50 rounded-xl card-shadow">
-                            <div class="w-12 h-12 flex items-center justify-center bg-accent rounded-full text-white font-bold text-xl mb-4 shadow-lg">4</div>
-                            <h4 class="text-xl font-bold mb-2 text-gray-900">Analyze & Scale</h4>
-                            <p class="text-gray-600">We provide monthly reports focused on sales and lead data, not vanity metrics. We use this data to continuously optimize and scale successful strategies.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-16 sm:py-24 bg-gray-900 text-white">
-            <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h3 class="text-xs font-bold uppercase text-accent mb-2 tracking-widest">Let's Connect</h3>
-                <h2 class="text-3xl sm:text-4xl font-extrabold mb-8">Ready for Real Social Media <span class="text-accent">Results</span>?</h2>
-                <p class="text-gray-300 mb-8">
-                    Stop guessing and start growing. Contact SS Agency today for a free, no-obligation strategy session tailored for your business in Lakhimpur Kheri.
-                </p>
-                <p class="text-lg font-semibold text-accent mb-4">
-                    Send us a direct email: <a href="mailto:swatantrashukla411@gmail.com" class="underline hover:text-white transition duration-150">swatantrashukla411@gmail.com</a>
-                </p>
-
-                <!-- Mock Contact Form / CTA - Configured for mailto submission -->
-                <div class="bg-white p-6 rounded-xl shadow-2xl text-gray-800">
-                    <form onsubmit="handleMailtoSubmission(event)">
-                        <!-- Added name attributes for mailto functionality -->
-                        <input type="text" name="Client Name" placeholder="Your Name" class="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" required>
-                        <input type="email" name="Client Email" placeholder="Business Email" class="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" required>
-                        <textarea name="Goals & Inquiry" placeholder="Tell us about your goals (e.g., I need 50 leads per month)" rows="4" class="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" required></textarea>
-                        <button type="submit" class="w-full py-3 bg-accent text-white font-bold rounded-lg hover:bg-orange-700 transition duration-300">
-                            Request Free Consultation
-                        </button>
-                    </form>
-                    <!-- Updated feedback message for mailto process -->
-                    <p id="form-message" class="mt-4 text-sm font-semibold hidden text-amber-500">
-                        Preparing your email... Please confirm the message in your default email application and press "Send".
-                    </p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 py-10 text-gray-400">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-xl font-bold text-white mb-2"><span class="text-accent">SS</span> Agency</p>
-            <p class="text-sm mb-4">Results-Driven Social Media Marketing | Serving Lakhimpur Kheri</p>
-            <div class="flex justify-center space-x-6 text-sm mb-4">
-                <a href="tel:+919876543210" class="hover:text-accent transition duration-150">Phone: +91 98765 43210</a>
-                <a href="mailto:swatantrashukla411@gmail.com" class="hover:text-accent transition duration-150">Email: swatantrashukla411@gmail.com</a>
-            </div>
-            <p class="text-xs">&copy; 2025 SS Agency. All rights reserved.</p>
+            
+            <div id="itemsList" class="items-grid"></div>
         </div>
-    </footer>
+    </div>
+
+    <!-- Unclaimed Modal -->
+    <div id="unclaimedModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('unclaimedModal')">&times;</span>
+            <h2>📦 ITEMS NOT CLAIMED YET</h2>
+            
+            <div class="warning-msg">
+                ⏰ These items are waiting for their owners. If you recognize your item, click CLAIM!
+            </div>
+            
+            <div id="unclaimedList" class="items-grid"></div>
+        </div>
+    </div>
+
+    <!-- Rules Modal -->
+    <div id="rulesModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('rulesModal')">&times;</span>
+            <h2>📋 RULES & SAFETY</h2>
+            
+            <div class="rules-content">
+                <h3>✅ How It Works:</h3>
+                <p>1. Student finds an item and uploads it with details</p>
+                <p>2. A secret code is automatically generated for security</p>
+                <p>3. Real owner sees the item and clicks "Claim This Item"</p>
+                <p>4. Owner must provide accurate details matching the uploaded info</p>
+                <p>5. If details match, a private chat opens between finder and owner</p>
+                <p>6. Both students meet in person to return the item</p>
+                
+                <h3>🔐 Security Features:</h3>
+                <p>✔ Secret code verification (only finder knows)</p>
+                <p>✔ Location and description must match exactly</p>
+                <p>✔ Student ID/Roll number required</p>
+                <p>✔ Private chat between verified students only</p>
+                <p>✔ Fake claims are automatically rejected</p>
+                
+                <h3>⚠️ Important Rules:</h3>
+                <p>• Only claim items that are truly yours</p>
+                <p>• Provide honest and accurate details</p>
+                <p>• Meet in safe, public campus locations</p>
+                <p>• Report any suspicious activity</p>
+                <p>• Fake claims may be reported to authorities</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Claim Modal -->
+    <div id="claimModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeClaimModal()">&times;</span>
+            <h2>✅ CLAIM THIS ITEM</h2>
+            <form id="claimForm">
+                <div class="form-group">
+                    <label>Your Name *</label>
+                    <input type="text" id="claimName" required>
+                </div>
+                <div class="form-group">
+                    <label>Your Roll Number *</label>
+                    <input type="text" id="claimRoll" required>
+                </div>
+                <div class="form-group">
+                    <label>Where Did You Lose It? *</label>
+                    <input type="text" id="claimLocation" placeholder="Must match actual location" required>
+                </div>
+                <div class="form-group">
+                    <label>Describe Your Item *</label>
+                    <textarea id="claimDescription" placeholder="Prove ownership with specific details" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Your Contact *</label>
+                    <input type="text" id="claimContact" required>
+                </div>
+                <div class="form-group">
+                    <label>Secret Code * (Get from finder)</label>
+                    <input type="text" id="claimCode" placeholder="4-digit code" required>
+                </div>
+                <button type="submit">SUBMIT CLAIM</button>
+            </form>
+            <div id="claimResult"></div>
+            <div id="chatSection" style="display: none;">
+                <h3>💬 Private Chat</h3>
+                <div id="chatBox" class="chat-box"></div>
+                <div class="chat-input">
+                    <input type="text" id="chatMessage" placeholder="Type your message...">
+                    <button onclick="sendMessage()">SEND</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
-        // Function to handle form submission using mailto protocol
-        function handleMailtoSubmission(event) {
-            event.preventDefault(); // Stop the default submission first
+        const API_URL = 'http://localhost:3000/api';
+        let currentItemId = null;
+        let currentUserId = localStorage.getItem('userId') || 'user_' + Date.now();
+        localStorage.setItem('userId', currentUserId);
+        let chatPollingInterval;
+
+        async function testConnection() {
+            try {
+                const response = await fetch(`${API_URL}/health`);
+                const result = await response.json();
+                
+                if (result.status === 'OK') {
+                    alert('✅ Backend Connected Successfully!\n\n✓ Server is running\n✓ API is accessible\n✓ Ready to use!\n\nURL: ' + API_URL);
+                } else {
+                    alert('⚠️ Backend responded but status unclear');
+                }
+            } catch (error) {
+                alert('❌ Cannot Connect to Backend!\n\n⚠️ SOLUTIONS:\n\n1. Start backend server:\n   cd backend\n   npm start\n\n2. Check if port 3000 is correct\n\n3. Verify MySQL is running\n\nCurrent API URL: ' + API_URL + '\n\nError: ' + error.message);
+            }
+        }
+
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            if (modalId === 'searchModal') loadItems();
+            if (modalId === 'unclaimedModal') loadUnclaimedItems();
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function closeClaimModal() {
+            closeModal('claimModal');
+            stopChatPolling();
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                stopChatPolling();
+            }
+        }
+
+        document.getElementById('uploadForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
             
-            const form = event.target;
-            // Retrieve values using the new name attributes
-            const name = form.querySelector('[name="Client Name"]').value;
-            const email = form.querySelector('[name="Client Email"]').value;
-            const goals = form.querySelector('[name="Goals & Inquiry"]').value;
-
-            // Construct the email subject
-            const subject = encodeURIComponent("New Client Inquiry from SS Agency Website");
+            const imageFile = document.getElementById('itemImage').files[0];
+            if (!imageFile) {
+                alert('❌ Please select an image!');
+                return;
+            }
             
-            // Format the body content clearly for readability in the email
-            const bodyContent = `
-Client Name: ${name}
-Client Email: ${email}
-
-Goals/Inquiry Details:
-----------------------
-${goals}
-
-----------------------
-Sent via SS Agency Website Contact Form
-    `.trim();
-
-            const body = encodeURIComponent(bodyContent);
-
-            // Construct the final mailto URL
-            const mailtoUrl = `mailto:swatantrashukla411@gmail.com?subject=${subject}&body=${body}`;
-
-            const formMessage = document.getElementById('form-message');
-            formMessage.classList.remove('hidden', 'text-green-600');
-            formMessage.classList.add('text-amber-500');
-            formMessage.textContent = 'Preparing your email... Please confirm the message in your default email application and press "Send".';
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'UPLOADING...';
+            submitBtn.disabled = true;
             
-            // Trigger the mailto link after a slight delay to ensure the message is displayed
-            setTimeout(() => {
-                window.location.href = mailtoUrl;
-            }, 500);
+            const reader = new FileReader();
+            
+            reader.onload = async function(event) {
+                const itemData = {
+                    image: event.target.result,
+                    name: document.getElementById('itemName').value,
+                    description: document.getElementById('itemDescription').value,
+                    location: document.getElementById('locationFound').value,
+                    dateTime: document.getElementById('dateTimeFound').value,
+                    finderContact: document.getElementById('finderContact').value,
+                    finderRoll: document.getElementById('finderRoll').value,
+                    finderId: currentUserId
+                };
+                
+                try {
+                    const response = await fetch(`${API_URL}/items`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(itemData)
+                    });
+                    
+                    if (!response.ok) throw new Error('Server error: ' + response.status);
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        alert('✅ Item uploaded successfully!\n\n🔐 YOUR SECRET CODE: ' + result.secretCode + '\n\n⚠️ SAVE THIS CODE!\nShare it only with the real owner after they describe the item correctly.');
+                        document.getElementById('uploadForm').reset();
+                        closeModal('uploadModal');
+                    } else {
+                        alert('❌ Error: ' + result.message);
+                    }
+                } catch (error) {
+                    alert('❌ Failed to upload item!\n\n⚠️ POSSIBLE REASONS:\n\n1. Backend server is not running\n   → Run: cd backend && npm start\n\n2. Database connection failed\n   → Check MySQL is running\n   → Verify password in backend.js\n\n3. Network error\n   → Check API_URL: ' + API_URL + '\n\nError: ' + error.message);
+                } finally {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }
+            };
+            
+            reader.readAsDataURL(imageFile);
+        });
 
-            // Note: We intentionally do NOT reset the form immediately because the user may need the data 
-            // if their email client doesn't launch correctly.
+        async function loadItems() {
+            try {
+                const response = await fetch(`${API_URL}/items`);
+                const result = await response.json();
+                if (result.success) displayItems(result.items, 'itemsList');
+            } catch (error) {
+                document.getElementById('itemsList').innerHTML = '<p class="error-msg">Failed to load items.</p>';
+            }
+        }
+
+        async function loadUnclaimedItems() {
+            try {
+                const response = await fetch(`${API_URL}/items`);
+                const result = await response.json();
+                if (result.success) {
+                    const unclaimed = result.items.filter(item => !item.claimed);
+                    displayItems(unclaimed, 'unclaimedList');
+                }
+            } catch (error) {
+                document.getElementById('unclaimedList').innerHTML = '<p class="error-msg">Failed to load items.</p>';
+            }
+        }
+
+        function displayItems(items, containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            if (items.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #666; padding: 40px;">No items found.</p>';
+                return;
+            }
+            
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'item-card';
+                card.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <h3>${item.name}</h3>
+                    <p><strong>📍</strong> ${item.location}</p>
+                    <p><strong>📅</strong> ${new Date(item.date_time).toLocaleString()}</p>
+                    <p><strong>📝</strong> ${item.description.substring(0, 60)}...</p>
+                    <span class="item-status ${item.claimed ? 'status-claimed' : 'status-available'}">
+                        ${item.claimed ? '✓ CLAIMED' : '● AVAILABLE'}
+                    </span>
+                    <button class="claim-btn" onclick="openClaimModal(${item.id})" ${item.claimed ? 'disabled' : ''}>
+                        ${item.claimed ? 'ALREADY CLAIMED' : 'CLAIM THIS ITEM'}
+                    </button>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        async function filterItems() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const category = document.getElementById('categoryFilter').value;
+            
+            try {
+                let url = `${API_URL}/items?`;
+                if (searchTerm) url += 'search=' + searchTerm + '&';
+                if (category !== 'all') url += 'category=' + category;
+                
+                const response = await fetch(url);
+                const result = await response.json();
+                if (result.success) displayItems(result.items, 'itemsList');
+            } catch (error) {
+                console.error('Error filtering items:', error);
+            }
+        }
+
+        function openClaimModal(itemId) {
+            currentItemId = itemId;
+            document.getElementById('claimModal').style.display = 'block';
+            document.getElementById('claimResult').innerHTML = '';
+            document.getElementById('chatSection').style.display = 'none';
+            document.getElementById('claimForm').style.display = 'block';
+            document.getElementById('claimForm').reset();
+        }
+
+        document.getElementById('claimForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const claimData = {
+                itemId: currentItemId,
+                ownerName: document.getElementById('claimName').value,
+                ownerRoll: document.getElementById('claimRoll').value,
+                claimLocation: document.getElementById('claimLocation').value,
+                claimDescription: document.getElementById('claimDescription').value,
+                ownerContact: document.getElementById('claimContact').value,
+                secretCode: document.getElementById('claimCode').value,
+                ownerId: currentUserId
+            };
+            
+            try {
+                const response = await fetch(`${API_URL}/claims`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(claimData)
+                });
+                
+                const result = await response.json();
+                const resultDiv = document.getElementById('claimResult');
+                
+                if (result.success) {
+                    resultDiv.innerHTML = '<div class="success-msg">✅ <strong>CLAIM APPROVED!</strong><br>All details verified successfully.<br><br><strong>Finder Contact:</strong> ' + result.finderContact + '<br><strong>Your Contact:</strong> ' + claimData.ownerContact + '<br><br>Use the chat below to coordinate meeting!</div>';
+                    
+                    document.getElementById('claimForm').style.display = 'none';
+                    document.getElementById('chatSection').style.display = 'block';
+                    loadItems();
+                    loadChat();
+                    startChatPolling();
+                } else {
+                    resultDiv.innerHTML = '<div class="error-msg">❌ ' + result.message + '</div>';
+                }
+            } catch (error) {
+                document.getElementById('claimResult').innerHTML = '<div class="error-msg">Failed to submit claim.</div>';
+            }
+        });
+
+        async function loadChat() {
+            try {
+                const response = await fetch(`${API_URL}/messages/${currentItemId}`);
+                const result = await response.json();
+                
+                if (result.success) {
+                    const chatBox = document.getElementById('chatBox');
+                    chatBox.innerHTML = '';
+                    
+                    result.messages.forEach(msg => {
+                        const msgDiv = document.createElement('div');
+                        msgDiv.className = 'chat-message ' + (msg.sender_id === currentUserId ? 'owner' : 'finder');
+                        msgDiv.innerHTML = '<strong>' + (msg.sender_id === currentUserId ? 'You' : 'Other Student') + ':</strong> ' + msg.message + '<br><small>' + new Date(msg.created_at).toLocaleTimeString() + '</small>';
+                        chatBox.appendChild(msgDiv);
+                    });
+                    
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                }
+            } catch (error) {
+                console.error('Error loading chat:', error);
+            }
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('chatMessage');
+            const message = input.value.trim();
+            
+            if (message) {
+                try {
+                    const response = await fetch(`${API_URL}/messages`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            itemId: currentItemId,
+                            senderId: currentUserId,
+                            message: message
+                        })
+                    });
+                    
+                    const result = await response.json();
+                    if (result.success) {
+                        input.value = '';
+                        loadChat();
+                    }
+                } catch (error) {
+                    console.error('Error sending message:', error);
+                }
+            }
+        }
+
+        function startChatPolling() {
+            chatPollingInterval = setInterval(loadChat, 3000);
+        }
+
+        function stopChatPolling() {
+            if (chatPollingInterval) {
+                clearInterval(chatPollingInterval);
+            }
         }
     </script>
 </body>
